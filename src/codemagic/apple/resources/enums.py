@@ -125,7 +125,13 @@ class ProfileType(_ResourceEnum):
     TVOS_APP_STORE = 'TVOS_APP_STORE'
 
     def devices_not_allowed(self) -> bool:
-        return self in (ProfileType.IOS_APP_STORE, ProfileType.IOS_APP_INHOUSE)
+        return self in (
+            ProfileType.IOS_APP_STORE,
+            ProfileType.IOS_APP_INHOUSE,
+            ProfileType.MAC_APP_STORE,
+            ProfileType.MAC_CATALYST_APP_STORE,
+            ProfileType.TVOS_APP_STORE,
+        )
 
     def devices_allowed(self) -> bool:
         return not self.devices_not_allowed()
